@@ -11,7 +11,8 @@ module.exports = ({ strapi }) => {
           .generateText(reqBody);
       } catch (err) {
         console.log(err);
-        ctx.throw(500, err);
+        return err
+        // ctx.throw(500, err);
       }
     }
     return ctx.throw(

@@ -77,8 +77,8 @@ const RightLinksCompo = () => {
         .create({ aiType, template, prompt, temperature, maxTokens })
         .then((data) => {
           console.log(data);
-          setCompletion(data?.choices[0]?.text.trim());
-          setFinishReason(data?.choices[0]?.finish_reason);
+          setCompletion(data?.text);
+          // setFinishReason(data?.choices[0]?.finish_reason);
           setGenerateCompletionText('Generate');
         });
     }
@@ -172,9 +172,11 @@ const RightLinksCompo = () => {
                         >
                           <Option value="Claude">Claude</Option>
                           <Option value="ChatGpt">ChatGpt</Option>
-                          <Option value="gpt-3.5">gpt-3.5</Option>
+                          <Option value="gpt-3.5-turbo">gpt-3.5-turbo</Option>
                           <Option value="gpt-4">gpt-4</Option>
                           <Option value="gpt-5">gpt-5</Option>
+                          <Option value="bard">bard</Option>
+                          <Option value="bing">bing</Option>
                           <Option value="backup1">backup1</Option>
                           <Option value="backup2">backup2</Option>
                           <Option value="backup3">backup3</Option>
@@ -267,34 +269,43 @@ const RightLinksCompo = () => {
                   paddingLeft={4}
                   background="neutral0"
                 >
-                  <Button paddingTop={4} onClick={() => handlePromptSubmit()}>
+                  <Button
+                    disabled={!prompt}
+                    paddingTop={2}
+                    onClick={() => handlePromptSubmit()}
+                  >
                     {generateCompletionText}
                   </Button>
                 </Box>
-
-                <Box
-                  color="neutral800"
-                  paddingTop={4}
-                  paddingBottom={8}
-                  paddingLeft={4}
-                  background="neutral0"
-                >
-                  <Textarea
-                    label="Completion"
-                    hint={
-                      finishReason && completion
-                        ? `${formatMessage({
-                            id: getTrad('Modal.tabs.prompt.finish-reason.text'),
-                            defaultMessage: 'Finish reason:',
-                          })} ${finishReason}`
-                        : undefined
-                    }
-                    onChange={(e) => setCompletion(e.target.value)}
-                    name="content"
+                {completion && (
+                  <Box
+                    color="neutral800"
+                    paddingTop={4}
+                    paddingBottom={8}
+                    paddingLeft={4}
+                    background="neutral0"
                   >
-                    {completion}
-                  </Textarea>
-                </Box>
+                    <Textarea
+                      label="AI Generate Content"
+                      style={{ height: '300px' }}
+                      rows={10}
+                      hint={
+                        finishReason && completion
+                          ? `${formatMessage({
+                              id: getTrad(
+                                'Modal.tabs.prompt.finish-reason.text'
+                              ),
+                              defaultMessage: 'Finish reason:',
+                            })} ${finishReason}`
+                          : undefined
+                      }
+                      onChange={(e) => setCompletion(e.target.value)}
+                      name="content"
+                    >
+                      {completion}
+                    </Textarea>
+                  </Box>
+                )}
               </ModalBody>
               <ModalFooter
                 startActions={
