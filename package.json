@@ -1,0 +1,32 @@
+{
+  "name": "strapi-plugin-ai-content",
+  "version": "1.0.0",
+  "description": "The official plugin that allows you to create Open AI completion from a prompt",
+  "strapi": {
+    "name": "ai-content",
+    "description": "The custome plugin that allows you to create Open AI completion from a prompt",
+    "kind": "plugin",
+    "displayName": "Custom AI Content"
+  },
+  "author": "Excel",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yirenkeji555/strapi-plugin-ai-content.git"
+  },
+  "peerDependencies": {
+    "@strapi/strapi": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yirenkeji555/strapi-plugin-ai-content/issues"
+  },
+  "homepage": "https://github.com/yirenkeji555/strapi-plugin-ai-content#readme",
+  "main": "strapi-admin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
