@@ -1,6 +1,6 @@
 {
   "Plugin.name": "Open AI Completion",
-  "RightLinks.button": "Completion",
+  "RightLinks.button": "AI Content",
   "Modal.tabs.prompt": "Prompt",
   "Modal.tabs.settings": "Settings",
   "Modal.tabs.templates": "Templates",
