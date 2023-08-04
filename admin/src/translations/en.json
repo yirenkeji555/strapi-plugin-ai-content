@@ -1,5 +1,5 @@
 {
-  "Plugin.name": "Open AI Completion",
+  "Plugin.name": "Generate Content from AI",
   "RightLinks.button": "AI Content",
   "Modal.tabs.prompt": "Prompt",
   "Modal.tabs.settings": "Settings",
